@@ -8,6 +8,7 @@
     <h1>Actualizar Cliente</h1>
     
     <form th:action="@{'/cliente/actualizar/' + ${cliente.idCli}}" method="post">
+   
         <input type="hidden" name="id_cliente" th:value="${cliente.idCli}" />
         
         <label for="dni">DNI:</label>
