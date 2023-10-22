@@ -30,7 +30,7 @@ public class ClienteController {
 	    @GetMapping("/registro")
 	    public String mostrarFormularioRegistro(Model model) {
 	        model.addAttribute("cliente", new Cliente());
-	        return "cliente/registroClientes";
+	        return "cliente/registrocliente";
 	    }
 
 	    @PostMapping("/registro")
