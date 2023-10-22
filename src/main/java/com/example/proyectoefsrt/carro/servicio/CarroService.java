@@ -8,5 +8,6 @@ public interface CarroService {
 	public Carro insertarCarro(Carro objCarro);
 	public List<Carro>listrarCarro();
 	public Carro obtenerCarro(int id);
+	public void eliminarCarro(int id);
 	
 }

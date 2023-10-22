@@ -33,4 +33,10 @@ public class CarroServiceImpl implements CarroService {
 		return (Carro) repoCarro.findById(id);
 	}
 
+	@Override
+	public void eliminarCarro(int id) {
+		repoCarro.deleteById(id);
+	}
+
+
 }
