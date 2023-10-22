@@ -41,7 +41,7 @@ public class ClienteServicioImpl implements ClienteServicio{
 			client.setDireccion(cliente.getDireccion());
 			client.setTelefono(cliente.getTelefono());
 			client.setCorreo(cliente.getCorreo());
-			client.setDni(client.getDni());
+			client.setDni(cliente.getDni());
           
             repoCli.save(client);
         }
@@ -49,9 +49,9 @@ public class ClienteServicioImpl implements ClienteServicio{
 	}
 
 	@Override
-	public Cliente obtenerCliente(int id_cliente) {
+	public Cliente obtenerCliente(int idCli) {
 		
-		return repoCli.findById(id_cliente).orElse(null);
+		return repoCli.findById(idCli).orElse(null);
 	}
 
 }
