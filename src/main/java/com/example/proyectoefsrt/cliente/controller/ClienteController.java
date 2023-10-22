@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,49 +48,32 @@ public class ClienteController {
 	    }
 
 		
-		@PostMapping("/eliminar")
-		public String eliminarCliente(@RequestParam("idCli") int idCli, Model model) {
+	    @PostMapping("/eliminar/{idCli}")
+	    public String eliminarCliente(@PathVariable("idCli") int idCli, Model model) {
+	        try {
+	            servicioCliente.eliminarCliente(idCli);
+	            System.out.println("SE ELIMINO CORRECTAMENTE");
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return "redirect:/cliente/listado"; 
+	    }
 		
-
-
-			try {
-				servicioCliente.eliminarCliente(idCli);
-				System.out.println("SE ELIMINO CORRECTAMENTE");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		    
-		    List<Cliente> clientes = servicioCliente.listadoCliente();
-		    model.addAttribute("clientes", clientes);
-		    
-		   return "cliente/listadoClientes";
-		   
-		}
+	    @GetMapping("/obtener/{idCli}")
+	    public String obtenerIdCliente(@PathVariable("idCli") int idCli, Model model) {
+	        Cliente cliente = servicioCliente.obtenerCliente(idCli);
+	        model.addAttribute("cliente", cliente);
+	        return "cliente/actualizarcliente";
+	    }
 		
-		
-		@PostMapping("/obtenerid")
-		public String obtenerIdCliente(@RequestParam("id_cliente") int id_cliente, Model model) {
-		
-			model.addAttribute("cliente", servicioCliente.obtenerCliente(id_cliente));
-		    System.out.println("El codigo recogido es: " + id_cliente);
-		    
-		   return "cliente/actualizarCliente";
-		}
-		
-		@PostMapping("/actualizar")
-		public String actualizacionCliente(@ModelAttribute Cliente cliente, @RequestParam("id_cliente") int id_cliente ,Model model) {
-			try {
-				model.addAttribute("cliente", servicioCliente.actualizarCliente(cliente));
-				System.out.println("El codigo recogido es: " + id_cliente);
-				
-			} catch (Exception e) {
-				System.out.println("El codigo recogido es: " + e);
-			}
-			
-		    List<Cliente> clientes = servicioCliente.listadoCliente();
-		    model.addAttribute("clientes", clientes);
-			
-			return "cliente/listadoClientes";
-		}
-}
+	    @PostMapping("/actualizar/{idCli}") 
+	    public String actualizacionCliente(@ModelAttribute Cliente cliente, @PathVariable("idCli") int idCli, Model model) {
+	        try {
+	           
+	            servicioCliente.actualizarCliente(cliente);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return "redirect:/cliente/listado"; 
+	    }
+	}
