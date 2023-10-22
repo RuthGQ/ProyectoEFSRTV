@@ -27,4 +27,10 @@ public class CarroServiceImpl implements CarroService {
 		return repoCarro.findAll();
 	}
 
+	@Override
+	public Carro obtenerCarro(int id) {
+		// TODO Auto-generated method stub
+		return (Carro) repoCarro.findById(id);
+	}
+
 }
