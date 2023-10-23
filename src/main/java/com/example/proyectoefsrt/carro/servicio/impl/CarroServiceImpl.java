@@ -30,7 +30,7 @@ public class CarroServiceImpl implements CarroService {
 	@Override
 	public Carro obtenerCarro(int id) {
 		// TODO Auto-generated method stub
-		return (Carro) repoCarro.findById(id);
+		return (Carro) repoCarro.findById(id).orElse(null);
 	}
 
 }
