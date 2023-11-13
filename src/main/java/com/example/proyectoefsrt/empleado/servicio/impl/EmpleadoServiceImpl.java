@@ -65,6 +65,6 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 	
 	@Override
     public Empleado obtenerEmpleadoUserClave(String user, String clave) {
-        return repoEmpleado.findByUserAndClave(user, clave);
+        return repoEmpleado.findByUserAndClave(user, clave).orElse(null);
     }
 }
