@@ -41,6 +41,7 @@ public class CarroController {
 	@PutMapping("/actualizar")
 	@ResponseBody
 	public Carro actualizarCarro(@RequestBody Carro carro) {
+		
 		return servicioCarro.actualizarCarro(carro);
 	}
 	
@@ -48,7 +49,5 @@ public class CarroController {
 	public void eliminarVendedor(@PathVariable int id) {
 		servicioCarro.eliminarCarro(id);
 	}
-	
-
 }
 
