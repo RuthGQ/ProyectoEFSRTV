@@ -43,4 +43,10 @@ public class VentaController {
     public void eliminarVenta(@PathVariable int id){
         ventaService.eliminarVenta(id);
     }
+
+    @GetMapping("/ultima")
+    public Venta obtenerUltimaVenta(){
+        return ventaService.obtenerUltimaVenta();
+    }
+
 }

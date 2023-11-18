@@ -12,4 +12,6 @@ public interface ClienteServicio {
 	public Cliente actualizarCliente(Cliente cliente);
 	public Cliente obtenerCliente(int idCli);
 
+	Cliente obtenerClientePorDni(String nombre);
+
 }

@@ -50,4 +50,10 @@ public class ClienteController {
 	public void eliminarCliente(@PathVariable int id) {
 		clienteServicio.eliminarCliente(id);
 	}
+
+	@GetMapping("/pordni/{dni}")
+	public Cliente obtenerClientePorDni(@PathVariable String dni){
+		return clienteServicio.obtenerClientePorDni(dni);
+	}
+
 }

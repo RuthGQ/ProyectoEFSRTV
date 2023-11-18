@@ -54,4 +54,8 @@ public class ClienteServicioImpl implements ClienteServicio{
 		return repoCli.findById(idCli).orElse(null);
 	}
 
+	@Override
+	public Cliente obtenerClientePorDni(String dni) {
+		return repoCli.findByDni(dni);
+	}
 }

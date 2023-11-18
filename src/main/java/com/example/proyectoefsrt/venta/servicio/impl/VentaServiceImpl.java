@@ -1,6 +1,5 @@
 package com.example.proyectoefsrt.venta.servicio.impl;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.example.proyectoefsrt.carro.entity.Carro;
 import com.example.proyectoefsrt.carro.repository.ICarroRepository;
 import com.example.proyectoefsrt.detalleVenta.entity.DetalleVenta;
@@ -14,6 +13,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -66,5 +66,10 @@ public class VentaServiceImpl implements VentaService {
     @Override
     public void eliminarVenta(int id) {
         repoVenta.deleteById(id);
+    }
+
+    @Override
+    public Venta obtenerUltimaVenta(){
+        return repoVenta.findFirstByOrderByIdDesc().orElse(null);
     }
 }

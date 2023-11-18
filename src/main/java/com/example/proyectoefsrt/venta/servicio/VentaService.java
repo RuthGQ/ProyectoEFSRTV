@@ -11,4 +11,6 @@ public interface VentaService {
     Venta agregarVenta(VentaTransactionDto venta) throws Exception;
     Venta actualizarVenta(Venta venta);
     void eliminarVenta(int id);
+
+    Venta obtenerUltimaVenta();
 }

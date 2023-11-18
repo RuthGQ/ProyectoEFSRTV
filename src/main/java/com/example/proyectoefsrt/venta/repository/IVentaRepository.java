@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IVentaRepository extends JpaRepository<Venta, Integer> {
-    public Optional<Venta> findFirstByOrderByIdDesc();
+    Optional<Venta> findFirstByOrderByIdDesc();
     List<Venta> findVentaByFechaBetween(Date fechaInicio, Date fechaFin);
 }
