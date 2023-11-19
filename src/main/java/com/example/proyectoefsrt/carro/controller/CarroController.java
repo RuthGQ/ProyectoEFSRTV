@@ -3,6 +3,9 @@ package com.example.proyectoefsrt.carro.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,14 +17,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.proyectoefsrt.carro.entity.Carro;
+import com.example.proyectoefsrt.carro.entity.FiltroCarro;
 import com.example.proyectoefsrt.carro.servicio.CarroService;
 import com.example.proyectoefsrt.empleado.entity.Empleado;
+import com.example.proyectoefsrt.marca.entity.Marca;
+import com.example.proyectoefsrt.marca.service.MarcaService;
 
 @RestController
 @RequestMapping("/carro")
 public class CarroController {
 	@Autowired
 	private CarroService servicioCarro;
+	
+	@Autowired
+	private MarcaService servicioMarca;
 	
 	@GetMapping("")
 	public List<Carro>listarCarro(){
@@ -50,16 +59,16 @@ public class CarroController {
 		servicioCarro.eliminarCarro(id);
 	}
 	
-	@GetMapping("/marca/{marca}")
-	public List<Carro> ListarPorMarca(@PathVariable("marca") String marca) {
-	    return servicioCarro.ListarPorMarca(marca);
+	@GetMapping("/marca")
+	public ResponseEntity<List<Marca>> list() {
+		List<Marca> list = servicioMarca.buscarMarca();
+		return new ResponseEntity<List<Marca>>(list, HttpStatus.OK);
 	}
-	
-	@GetMapping("/modelo/{modelo}")
-	public List<Carro> ListarPorModelo(@PathVariable("modelo") String modelo) {
-	    return servicioCarro.ListarPorMarca(modelo);
-	}
-	
+
+	/*@GetMapping("/modelo")
+	public List<Carro> ListarPorModelo(@RequestBody FiltroCarro filtro) {
+		return servicioCarro.ListarPorModelo(filtro.getModelo());
+	}*/
 	
 
 }
