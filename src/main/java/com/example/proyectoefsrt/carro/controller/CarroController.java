@@ -29,8 +29,6 @@ public class CarroController {
 	@Autowired
 	private CarroService servicioCarro;
 	
-	@Autowired
-	private MarcaService servicioMarca;
 	
 	@GetMapping("")
 	public List<Carro>listarCarro(){
@@ -59,11 +57,6 @@ public class CarroController {
 		servicioCarro.eliminarCarro(id);
 	}
 	
-	@GetMapping("/marca")
-	public ResponseEntity<List<Marca>> list() {
-		List<Marca> list = servicioMarca.buscarMarca();
-		return new ResponseEntity<List<Marca>>(list, HttpStatus.OK);
-	}
 
 	/*@GetMapping("/modelo")
 	public List<Carro> ListarPorModelo(@RequestBody FiltroCarro filtro) {
