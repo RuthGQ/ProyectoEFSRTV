@@ -63,6 +63,15 @@ public class CarroServiceImpl implements CarroService {
 		repoCarro.deleteById(id);
 	}
 
+	@Override
+	public List<Carro> ListarPorMarca(String objMarca) {
+	    return repoCarro.findByObjMarca_Descripcion(objMarca);
+	}
+
+	@Override
+	public List<Carro> ListarPorModelo(String modelo) {
+		return repoCarro.findByModelo(modelo);
+	}
 
 
 }

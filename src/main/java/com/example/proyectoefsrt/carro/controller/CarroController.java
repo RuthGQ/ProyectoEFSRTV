@@ -50,6 +50,17 @@ public class CarroController {
 		servicioCarro.eliminarCarro(id);
 	}
 	
+	@GetMapping("/marca/{marca}")
+	public List<Carro> ListarPorMarca(@PathVariable("marca") String marca) {
+	    return servicioCarro.ListarPorMarca(marca);
+	}
+	
+	@GetMapping("/modelo/{modelo}")
+	public List<Carro> ListarPorModelo(@PathVariable("modelo") String modelo) {
+	    return servicioCarro.ListarPorMarca(modelo);
+	}
+	
+	
 
 }
 
