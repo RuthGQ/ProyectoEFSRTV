@@ -58,10 +58,10 @@ public class CarroController {
 	}
 	
 
-	/*@GetMapping("/modelo")
-	public List<Carro> ListarPorModelo(@RequestBody FiltroCarro filtro) {
-		return servicioCarro.ListarPorModelo(filtro.getModelo());
-	}*/
+	@GetMapping("/marca/{marca}")
+	public List<Carro> listarPorMarca(@PathVariable int marca) {
+		return servicioCarro.listarPorMarca(marca);
+	}
 	
 
 }

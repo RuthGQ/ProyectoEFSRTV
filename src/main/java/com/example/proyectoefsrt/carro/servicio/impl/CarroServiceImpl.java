@@ -64,12 +64,12 @@ public class CarroServiceImpl implements CarroService {
 	}
 
 	@Override
-	public List<Carro> ListarPorMarca(String objMarca) {
-	    return repoCarro.findByObjMarca_Descripcion(objMarca);
+	public List<Carro> listarPorMarca(int objMarca) {
+	    return repoCarro.findByObjMarcaIdmarca(objMarca);
 	}
 
 	@Override
-	public List<Carro> ListarPorModelo(String modelo) {
+	public List<Carro> listarPorModelo(String modelo) {
 		return repoCarro.findByModelo(modelo);
 	}
 

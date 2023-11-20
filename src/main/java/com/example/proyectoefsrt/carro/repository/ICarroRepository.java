@@ -7,6 +7,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ICarroRepository extends JpaRepository<Carro, Integer> {
-	List<Carro> findByObjMarca_Descripcion(String MarcaDes);
-	List<Carro> findByModelo(String Modelo);
+	List<Carro> findByObjMarcaIdmarca(int id);
+	List<Carro> findByModelo(String modelo);
 }

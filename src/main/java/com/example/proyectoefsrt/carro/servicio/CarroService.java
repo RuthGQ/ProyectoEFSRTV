@@ -10,7 +10,7 @@ public interface CarroService {
 	public Carro insertarCarro(Carro objCarro);
 	public Carro actualizarCarro(Carro carro);
 	public void eliminarCarro(int id);
-	public List<Carro> ListarPorMarca(String objMarca);
-	public List<Carro> ListarPorModelo(String modelo);
+	public List<Carro> listarPorMarca(int objMarca);
+	public List<Carro> listarPorModelo(String modelo);
 }
 
